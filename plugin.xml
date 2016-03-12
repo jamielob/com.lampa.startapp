@@ -13,16 +13,16 @@
         <merges target="navigator.startApp" />
     </js-module>
 
-    <!-- android -->
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="startApp">
-                <param name="android-package" value="com.lampa.startapp.startApp"/>
-            </feature>
-        </config-file>
-
-        <source-file src="src/android/startApp.java" target-dir="src/com/lampa/startapp" />
-    </platform>
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+		    <feature name="startApp">
+		        <param name="android-package" value="com.lampa.startapp.startApp"/>
+		    </feature>
+		</config-file>
+		
+		<source-file src="src/android/startApp.java" target-dir="src/com/lampa/startapp" />
+	</platform>
 
 
 	<platform name="ios">
@@ -34,6 +34,14 @@
 		
 		<header-file src="src/ios/startApp.h"/>
 		<source-file src="src/ios/startApp.m"/>
+		
+		<!-- iOS9+ whitelisting, from here: https://developers.facebook.com/docs/ios/ios9 -->
+	        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+	            <array>
+	                <string>uber</string>
+	            </array>
+	        </config-file>
+		
 	</platform>
 
 
